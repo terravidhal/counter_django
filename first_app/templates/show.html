@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}		<!-- added this line for use static files -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+</head>
+
+<body>
+    {# 02 possibilités : #}
+
+    {# soit on utilise directement la session #}
+    <h1>Show Page</h1>
+    <h3>Info Submitted:</h3>
+    <p>Name: {{request.session.name}}</p>
+    <p>Email: {{request.session.email}}</p>
+    <p><a href="/">Back</a></p> 
+
+    {# 2-soit on stocke la session dans le "context" #}
+ <!--    <h1>Show Page</h1>
+    <h3>Info Submitted:</h3>
+    <p>Name: {{ name_on_template }}</p>
+    <p>Email: {{ email_on_template }}</p> 
+    <p><a href="/">Back</a></p> -->
+
+
+    <!-- <script src="{% static 'js/script.js' %}"></script>-->
+</body>
+
+</html>

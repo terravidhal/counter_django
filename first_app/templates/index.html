@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     {% load static %}		<!-- added this line for use static files -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+<body>
+     <div class="container">
+        <h1>Counter</h1>
+        <h3>number of Visits: {{request.session.visits}} time</h3> <!--ternary operator-->
+        <h3>Counter: {{ request.session.counter }} </h3>
+      <form action='/increm_session' method='POST'>
+        {% csrf_token %}
+        <input type='submit' value='Add two visits!'>
+      </form> 
+      <form action='/destroy_session' method='POST'>
+        {% csrf_token %}
+        <input type='submit' value='Reset'>
+      </form> 
+      <form action='/specify_increm' method='POST'>
+        {% csrf_token %}
+        <label for='visits'>add count :</label>
+        <input type='text' name='visits' id="visits">
+        <input type='submit' value='Add'>
+      </form> 
+     </div>
+
+
+
+   <!-- <script src="{% static 'js/script.js' %}"></script>-->
+</body>
+</html>
